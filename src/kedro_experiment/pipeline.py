@@ -43,6 +43,8 @@ from kedro.pipeline import Pipeline
 
 from kedro_experiment.pipelines import data_engineering as de
 from kedro_experiment.pipelines import data_science as ds
+from kedro_experiment.pipelines import spaceflight_de as sf_de
+from kedro_experiment.pipelines import spaceflight_ds as sf_ds
 
 
 def create_pipelines(**kwargs) -> Dict[str, Pipeline]:
@@ -59,10 +61,14 @@ def create_pipelines(**kwargs) -> Dict[str, Pipeline]:
 
     data_engineering_pipeline = de.create_pipeline()
     data_science_pipeline = ds.create_pipeline()
+    spaceflight_de_pipeline = sf_de.create_pipeline()
+    spaceflight_ds_pipeline = sf_ds.create_pipeline()
 
     return {
         "de": data_engineering_pipeline,
         "ds": data_science_pipeline,
-        "__default__": data_engineering_pipeline + data_science_pipeline,
+        "spaceflight_de": spaceflight_de_pipeline,
+        "spaceflight_ds": spaceflight_ds_pipeline,
+        "__default__": spaceflight_de_pipeline + spaceflight_ds_pipeline,
     }
 
