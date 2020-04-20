@@ -75,3 +75,15 @@ regressor:
   type: pickle.PickleDataSet
   filepath: data/06_models/regressor.pickle
   versioned: true
+
+abnb_reviews:
+  type: pandas.CSVDataSet
+  filepath: data/01_raw/abnb_reviews.csv
+
+abnb_neighbourhoods:
+  type: pandas.CSVDataSet
+  filepath: data/01_raw/abnb_neighbourhoods.csv
+
+abnb_listings:
+  type: pandas.CSVDataSet
+  filepath: data/01_raw/abnb_listings.csv
